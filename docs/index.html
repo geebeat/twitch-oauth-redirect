@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Twitch OAuth Redirect</title>
+    <script>
+      window.onload = () => {
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        const token = params.get("access_token");
+        if (token) {
+          window.location.href = `streamercompanion://auth?access_token=${token}`;
+        } else {
+          document.body.innerText = "Kein Access Token erhalten.";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    Weiterleitung zu App...
+  </body>
+</html>
